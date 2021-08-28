@@ -1,0 +1,17 @@
+<div>
+  <h1>Internal Server Error</h1>
+  <ng-container *ngIf="error">
+    <h5 class="text-danger">Error: {{error.message}}</h5>
+    <p class="font-weight-bold">Not: Bunu görüyorsanız Angular doğru çalışmıyor olabilir.</p>
+    <p>Ne yapabilirsiniz?</p>
+    <ol>
+      <li>Developer Tool(F12)'u açın.</li>
+      <li>Network tabını izleyin</li>
+      <li>Hatalı isteği bulun</li>
+      <li>Hatalı url'in doğru olduğuna emin olun</li>
+      <li>Postman'de de aynı hatayı alıyorsanız hata Angular'dan kaynaklı değil demektir.</li>
+    </ol>
+    <p>Alttaki kodu takip ederek hatayı bulmaya başlayabilirsin!</p>
+    <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+  </ng-container>
+</div>

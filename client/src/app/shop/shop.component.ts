@@ -11,11 +11,11 @@ import {ShopParams} from "../shared/models/shopParams";
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', {static: true}) searchTerm: ElementRef | undefined;
+  @ViewChild('search', {static: false}) searchTerm: ElementRef | undefined;
 
-  products: IProduct[] = [];
-  brands: IBrand[] = [];
-  productTypes: IProductType[] = [];
+  products: IProduct[] | undefined;
+  brands: IBrand[] | undefined;
+  productTypes: IProductType[] | undefined;
 
   shopParams = new ShopParams();
   totalCount = 0;
@@ -63,7 +63,7 @@ export class ShopComponent implements OnInit {
   }
 
   onBrandSelectAll() {
-    this.shopParams.brandIdsSelected = this.brands.map(x => x.id);
+    this.shopParams.brandIdsSelected = this.brands!.map(x => x.id);
     this.shopParams.pageNumber = 1;
     this.getProducts();
   }
@@ -90,7 +90,7 @@ export class ShopComponent implements OnInit {
   }
 
   onProductTypeSelectAll() {
-    this.shopParams.productTypeIdsSelected = this.productTypes.map(x => x.id);
+    this.shopParams.productTypeIdsSelected = this.productTypes!.map(x => x.id);
     this.shopParams.pageNumber = 1;
     this.getProducts();
   }
@@ -128,13 +128,13 @@ export class ShopComponent implements OnInit {
     }
   }
 
-  onSearch(){
+  onSearch() {
     this.shopParams.search = this.searchTerm!.nativeElement.value;
     this.shopParams.pageNumber = 1;
     this.getProducts();
   }
 
-  onReset(){
+  onReset() {
     this.searchTerm!.nativeElement.value = '';
     this.shopParams = new ShopParams();
     this.getProducts();
