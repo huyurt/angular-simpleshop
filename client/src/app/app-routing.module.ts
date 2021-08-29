@@ -20,6 +20,11 @@ const routes: Routes = [
     loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule),
     data: {breadcrumb: 'Sepet'}
   },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule),
+    data: {breadcrumb: 'Ödeme'}
+  },
   {path: '**', redirectTo: 'not-found', pathMatch: 'full'},
 ];
 

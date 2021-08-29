@@ -9,8 +9,9 @@ namespace API.Controllers
 {
     public class BasketController : BaseApiController
     {
-                private readonly IBasketRepository _basketRepository;
+        private readonly IBasketRepository _basketRepository;
         private readonly IMapper _mapper;
+
         public BasketController(IBasketRepository basketRepository, IMapper mapper)
         {
             _mapper = mapper;
